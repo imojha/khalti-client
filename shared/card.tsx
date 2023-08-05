@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 type Props = {
   product: any;
+  onhandleBuy: (product: any) => void;
 };
-const Card = ({ product }: Props) => {
+const Card = ({ product, onhandleBuy }: Props) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg p-20 flex flex-col space-y-4">
       <Image src={`${product.image}`} width={200} height={200} alt="Product Image" />
@@ -13,7 +14,7 @@ const Card = ({ product }: Props) => {
         <button
           style={{ backgroundColor: "#592C8C" }}
           className="p-4"
-          onClick={() => console.log("hello")}
+          onClick={() => onhandleBuy(product)}
         >
           BUY NOW
         </button>
